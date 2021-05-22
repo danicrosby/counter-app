@@ -20,7 +20,8 @@ function App() {
 
   return (
     <div>
-      { array.map((counter) => <Counter
+      { array.map((counter, i) => <Counter
+        key={i}
         appName={counter.appName}
         initialValue={counter.initialValue}/>)
       }
