@@ -2,35 +2,15 @@ import React, { useState } from 'react';
 import './App.scss';
 
 function App() {
-  const [domWriting, setDomWriting] = useState('Nothing Here!');
-
-  const handleClick = (e) => {
-    console.warn(`You clicked ${e.target.id}`);
-    setDomWriting(`You clicked ${e.target.id}! Check the Console!`);
-  };
+  const [counter, setCounter] = useState(0);
 
   return (
     <div className='App'>
-      <h2>INSIDE APP COMPONENT</h2>
-      <div>
-        <button
-          id='this-button'
-          className='btn btn-info'
-          onClick={handleClick}
-        >
-          I am THIS button
-        </button>
-      </div>
-      <div>
-        <button
-          id='that-button'
-          className='btn btn-primary mt-3'
-          onClick={handleClick}
-        >
-          I am THAT button
-        </button>
-      </div>
-      <h3>{domWriting}</h3>
+      <h1>Counter App</h1>
+      <h2>{counter}</h2>
+      <button onClick={() => setCounter((prevState) => prevState + 1)}>Increment By 1</button>
+      <button onClick={() => setCounter((prevState) => prevState - 1)}>Decrease By 1</button>
+      <button onClick={() => setCounter(0)}>Reset</button>
     </div>
   );
 }
